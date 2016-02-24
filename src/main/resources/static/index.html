@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game lobbie</title>
+    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="demo-modal.css">
+    <script data-require="angular.js@1.2.0-rc3-nonmin" data-semver="1.2.0-rc3-nonmin" src="http://code.angularjs.org/1.2.0-rc.3/angular.js"></script>
+    <script src="lib/sockjs-0.3.4.js"></script>
+    <script src="lib/stomp.js"></script>
+    <script src="lib/modal.js"></script>
+    <script src="controller.js"></script>
+    <script src="model.js"></script>
+
+</head>
+
+<body>
+    <div ng-app="myApp" ng-controller="mainCtrl as ctrl">
+        <p><a href ng-click="ctrl.showAuth()">log in</a></p>
+        <p><a href ng-click="ctrl.showRegistration()">registration</a></p>
+
+
+        <p><a href onclick="user1()">test</a></p>
+
+        <p>on-line players: </p>
+        <ul  id="players">
+        </ul>
+
+        <p>lobbies: </p>
+        <table>
+            <tr ng-repeat = "lobbie in lobbies">
+                <td>{{lobbie.name}} </td>
+                <td>{{lobbie.count}}</td>
+                <td>{{lobbie.status}}</td>
+            </tr>
+        </table>
+        <button id="addLobbie" ng-click="addLobbie()">add lobbie</button>
+    </div>
+</body>
+
+</html>
